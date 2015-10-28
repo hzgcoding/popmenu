@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title></title>
+
+</head>
+<body>
+	<div class="bodydiv">
+
+		我依然爱你，不管世事如何，我爱你的那颗心永远不会变，任时光飞逝，任日月消磨，任风吹雨打却也改变不了我对你的一片执着，只是不要让我等的太久了，太久了我对你的执着会浓的化不开，时间愈长愈历久弥香。那颗执着的心伴我在枕边、桌旁、笑声里、生活里，一直到永远…爱你到永远…….　　不要总想着人家，在人家心里你真的不配　　不要总看人家的动态，就算你再累，人家也不理会　　不要总想人家，就算你付出在多，人家也不会落泪　　不要一直关注人家，人家不知道已经把你当成什么另类　　不要缠着人家，人家会说：你不累，我还累　　不要怨恨人家，你没什么让人家回味，就算你支离破碎　　不要不如意就伤害自己，来惩罚人家的不对　　不要总不自量力的估计自己在人家心里的地位，　　知到真相后看你怎样无奈　　不要盲目跟随人家的思维，人家会说你.
+	</div>
+	<div class="layer-shade"></div>
+	<div class="ios-pop-menu" id="del-confirm">
+  		<div class="menu-group">
+    		<a class="menu-item danger" href="#">删除</a>
+  		</div>
+  		<div class="menu-group">
+    		<a class="menu-item cancel" href="#">确认</a>
+    		<a class="menu-item cancel" href="#">取消</a>
+ 		</div>
+	</div>
+	
+	<style type="text/css">
+		html,body{
+			margin:0;
+			padding:0;
+		}
+		.layer-shade{
+			display:none;
+			width:100%;
+			height:100%;
+			position:fixed;
+			z-index:998; background-color:#000; opacity:0.3; filter:alpha(opacity=30);
+			top:0;
+			left:0;
+		}
+		.ios-pop-menu{
+			z-index:999;
+			position:fixed;
+			bottom:0;
+			display:none;
+			background-color:transparent;
+			color:#333;
+			right: 0px; left: 0px;
+			-webkit-transform: translateY(100%);
+			transform: translateY(100%); 
+			-webkit-transition: -webkit-transform .3s; transition: transform .3s;
+			-webkit-transform: translateY(0); transform: translateY(0); 
+		}
+		.menu-group{
+			background-color:#fff;
+			margin-top:5px;
+
+		}
+		.menu-item{
+			display:inline-block;
+			width:100%;
+			text-align:center;
+			line-height:1.43;
+			padding-top:8px;
+			padding-bottom:8px;
+			border-bottom:1px solid #ccc;
+			letter-spacing:8px;
+			text-decoration:none;
+			font-size:16px;
+			color:#000;
+		}
+	</style>
+</body>
+<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var iospopmenuheight = $(".ios-pop-menu").height();
+		$(".ios-pop-menu").height(0);
+		$(".ios-pop-menu").show();
+		/*bodydiv 是点击相应的dom元素*/
+		$(".bodydiv").click(function(){
+			$(".layer-shade").show();
+			/*$(".ios-pop-menu").show();*/
+			$(".ios-pop-menu").animate({height:iospopmenuheight},300);
+		});
+		$(".menu-item,.layer-shade").click(function(){
+			console.info($(this)[0].tagName);
+			//todo something...
+
+			//close pop-menu
+			$(".ios-pop-menu").animate({height:0},300,function(){
+				$(".layer-shade").hide();
+			});
+		});
+	});
+</script>
+</html>
